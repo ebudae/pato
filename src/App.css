@@ -1,38 +1,86 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: var(--day-background);
+  color: var(--day-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.App.night-mode {
+  background-color: var(--night-background);
+  color: var(--night-text);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-brand,
+.nav-link {
+  font-weight: bold;
+}
+
+.form-select {
+  cursor: pointer;
+}
+
+/* Card styling for ProductList and ProductDetail */
+.card {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-img-top {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 1rem;
+}
+
+/* Button styling */
+.btn {
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.btn-outline-light {
+  border-color: var(--day-text);
+  color: var(--day-text);
+}
+
+.btn-outline-light:hover {
+  background-color: var(--day-text);
+  color: var(--day-background);
+}
+
+.night-mode .btn-outline-light {
+  border-color: var(--night-text);
+  color: var(--night-text);
+}
+
+.night-mode .btn-outline-light:hover {
+  background-color: var(--night-text);
+  color: var(--night-background);
+}
+
+/* ListGroup styling for Cart and FreePresets */
+.list-group-item {
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.list-group-item:last-child {
+  margin-bottom: 0;
 }
