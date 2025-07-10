@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/pato/static/css/main.ef061380.css",
+    "main.js": "/pato/static/js/main.5c739aeb.js",
+    "static/js/453.fa97682a.chunk.js": "/pato/static/js/453.fa97682a.chunk.js",
+    "index.html": "/pato/index.html",
+    "main.ef061380.css.map": "/pato/static/css/main.ef061380.css.map",
+    "main.5c739aeb.js.map": "/pato/static/js/main.5c739aeb.js.map",
+    "453.fa97682a.chunk.js.map": "/pato/static/js/453.fa97682a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ef061380.css",
+    "static/js/main.5c739aeb.js"
+  ]
+}
