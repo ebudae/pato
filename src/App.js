@@ -6,6 +6,7 @@ import { ProductProvider } from './ProductContext';
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import ProductList from './components/ProductList';
 import ProductDetail from './components/ProductDetail';
+import Home from './components/Home';
 import Cart from './components/Cart';
 import FreePresets from './components/FreePresets';
 import './App.css';
@@ -50,7 +51,7 @@ function AppContent() {
 
       <Container className="mt-4">
         <Routes>
-          <Route path="/" element={<h1>Welcome to Sunkeet VST Store</h1>} />
+          <Route path="/" element={<Home />} />
           <Route path="/products" element={<ProductList />} />
           <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="/cart" element={<Cart />} />
