@@ -1,5 +1,5 @@
 .hero-section {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://www.native-instruments.com/typo3temp/pics/img-meta-native-instruments-massive-x-software-synthesizer-1200x628-b6a74e5f4963703d42d6b37a5a197657.jpg') no-repeat center center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/resources/hero-background.jpg') no-repeat center center;
   background-size: cover;
   color: white;
   padding: 100px 0;
