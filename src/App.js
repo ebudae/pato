@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { ThemeProvider, ThemeContext } from './ThemeContext';
 import { LanguageProvider, LanguageContext } from './LanguageContext';
 import { ProductProvider } from './ProductContext';
@@ -8,23 +8,26 @@ import ProductList from './components/ProductList';
 import ProductDetail from './components/ProductDetail';
 import Cart from './components/Cart';
 import FreePresets from './components/FreePresets';
+import WaveEffect from './components/WaveEffect';
 import './App.css';
 
 function AppContent() {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const { language, changeLanguage } = useContext(LanguageContext);
+  const location = useLocation();
 
   return (
-    <div className="App">
-      <Navbar expand="lg" variant={theme === 'day' ? 'light' : 'dark'} style={{ backgroundColor: theme === 'day' ? 'var(--day-primary-accent)' : 'var(--night-primary-accent)' }}>
+    <div className={`App ${theme === 'night' ? 'night-mode' : ''} ${location.pathname === '/' ? 'homepage' : ''}`}>
+      {location.pathname === '/' && <WaveEffect />}
+      <Navbar expand="lg" variant={theme === 'day' ? 'light' : 'dark'} style={{ backgroundColor: 'transparent', borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
         <Container>
-          <Navbar.Brand as={Link} to="/" style={{ color: theme === 'day' ? 'var(--day-text)' : 'var(--night-text)' }}>Sunkeet VST Store</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/" style={{ color: 'var(--night-text)' }}>Sunkeet VST Store</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link as={Link} to="/products" style={{ color: theme === 'day' ? 'var(--day-text)' : 'var(--night-text)' }}>Products</Nav.Link>
-              <Nav.Link as={Link} to="/cart" style={{ color: theme === 'day' ? 'var(--day-text)' : 'var(--night-text)' }}>Cart</Nav.Link>
-              <Nav.Link as={Link} to="/free-presets" style={{ color: theme === 'day' ? 'var(--day-text)' : 'var(--night-text)' }}>Free Presets</Nav.Link>
+              <Nav.Link as={Link} to="/products" style={{ color: 'var(--night-text)' }}>Products</Nav.Link>
+              <Nav.Link as={Link} to="/cart" style={{ color: 'var(--night-text)' }}>Cart</Nav.Link>
+              <Nav.Link as={Link} to="/free-presets" style={{ color: 'var(--night-text)' }}>Free Presets</Nav.Link>
             </Nav>
             <Nav>
               <Button variant="outline-light" onClick={toggleTheme} className="me-2">
@@ -35,9 +38,9 @@ function AppContent() {
                 value={language}
                 onChange={(e) => changeLanguage(e.target.value)}
                 style={{
-                  backgroundColor: theme === 'day' ? 'var(--day-background)' : 'var(--night-background)',
-                  color: theme === 'day' ? 'var(--day-text)' : 'var(--night-text)',
-                  borderColor: theme === 'day' ? 'var(--day-text)' : 'var(--night-text)'
+                  backgroundColor: 'transparent',
+                  color: 'var(--night-text)',
+                  borderColor: 'var(--night-text)'
                 }}
               >
                 <option value="en">English</option>
@@ -48,9 +51,9 @@ function AppContent() {
         </Container>
       </Navbar>
 
-      <Container className="mt-4">
+      <Container className="mt-4" style={{ position: 'relative', zIndex: 1 }}>
         <Routes>
-          <Route path="/" element={<h1>Welcome to Sunkeet VST Store</h1>} />
+          <Route path="/" element={null} />
           <Route path="/products" element={<ProductList />} />
           <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="/cart" element={<Cart />} />
